@@ -1,0 +1,182 @@
+/* 根节点 彻底解决vivo S10e 显示不全 核心核心！ */
+page {
+  padding: 0 !important;
+  margin: 0 !important;
+  width: 100vw !important;
+  overflow-x: hidden !important;
+  background-color: #f0f2f5;
+  font-family: "PingFang SC", "Microsoft YaHei", sans-serif;
+}
+.root-page {
+  width: 100%;
+  min-height: 100vh;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+/* 页面顶部标题栏 - 窄边距 适配小屏 */
+.page-header {
+  background: linear-gradient(135deg, #409eff, #67c23a);
+  padding: 18rpx 10rpx;
+  text-align: center;
+  width: 100%;
+}
+.page-title {
+  font-size: 28rpx;
+  font-weight: bold;
+	color: #fff;
+}
+
+/* 传感器模块外层 - 极限窄边距 不超屏 */
+.sensor-box {
+  padding: 10rpx 12rpx;
+  width: 100%;
+  box-sizing: border-box;
+}
+/* 2×2网格 你的要求：4个方块大小不变，位置固定 左上/右上/左下/右下 */
+.sensor-grid {
+  display: grid;
+  grid-template-columns: 48% 48%;
+  grid-template-rows: 160rpx 160rpx;
+  justify-content: space-between;
+  gap: 10rpx;
+  width: 100%;
+}
+/* 传感器方块 - 完美大小 不超屏 居中显示 */
+.sensor-card {
+  background: #fff;
+  border-radius: 14rpx;
+  padding: 20rpx 8rpx;
+  box-shadow: 0 2rpx 6rpx rgba(0,0,0,0.05);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* 传感器文字 全部完整显示 不遮挡 字号适配 */
+.sensor-label {
+  font-size: 24rpx;
+  color: #333;
+  margin-bottom: 10rpx;
+  display: block;
+  white-space: nowrap;  /* 强制不换行 文字完整显示 */
+}
+.sensor-value {
+  font-size: 28rpx;
+  font-weight: 600;
+  white-space: nowrap;  /* 强制不换行 数值+单位完整显示 */
+}
+
+/* 传感器颜色不变 醒目 */
+.temp-card .sensor-value { color: #e6a23c; }
+.humi-card .sensor-value { color: #409eff; }
+.air-card .sensor-value { font-weight: bold; }
+.door-card .sensor-value { font-weight: bold; }
+
+/* 柜门状态 图标+文字 完整显示 */
+.status-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6rpx;
+}
+.status-icon {
+  font-size: 24rpx;
+}
+
+/* 空气质量颜色 */
+.air-excellent { color: #67c23a; }
+.air-good { color: #409eff; }
+.air-normal { color: #e6a23c; }
+.air-bad { color: #f56c6c; }
+.air-worse { color: #909399; }
+
+/* 柜门状态颜色 强制生效 红开绿关 */
+.door-open { color: #f56c6c !important; }
+.door-close { color: #67c23a !important; }
+
+/* 设备控制模块 全部适配 窄边距 不超屏 整体缩小但不拥挤 */
+.device-box {
+  margin: 8rpx 12rpx;
+  background: #fff;
+  border-radius: 14rpx;
+  padding: 15rpx 12rpx;
+  box-shadow: 0 2rpx 6rpx rgba(0,0,0,0.05);
+  border-left: 4rpx solid #ccc;
+  width: 100%;
+  box-sizing: border-box;
+}
+.roast-box { border-left-color: #e6a23c; }
+.fan-box { border-left-color: #409eff; }
+.light-box { border-left-color: #9d80fe; }
+
+/* 设备标题栏 */
+.device-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10rpx;
+}
+.device-title {
+  font-size: 24rpx;
+  font-weight: bold;
+  color: #333;
+}
+.device-tag {
+  font-size: 18rpx;
+  color: #fff;
+  padding: 4rpx 8rpx;
+  border-radius: 14rpx;
+}
+.roast-box .device-tag { background: #e6a23c; }
+.fan-box .device-tag { background: #409eff; }
+.light-box .device-tag { background: #9d80fe; }
+
+/* 设备状态区 文字完整显示 */
+.device-status {
+  padding: 8rpx 10rpx;
+  background: #f8f9fa;
+  border-radius: 8rpx;
+  margin-bottom: 15rpx;
+}
+.status-label {
+  font-size: 22rpx;
+  color: #666;
+}
+.status-value {
+  font-size: 22rpx;
+  margin-left: 6rpx;
+  white-space: nowrap;
+}
+.status-running { color: #67c23a; font-weight: bold; }
+.status-stop { color: #f56c6c; font-weight: bold; }
+
+/* 按钮组 适配小屏 不超屏 易点击 */
+.btn-group {
+  display: flex;
+  gap: 10rpx;
+  width: 100%;
+  box-sizing: border-box;
+}
+.btn {
+  flex: 1;
+  height: 68rpx;
+  border-radius: 10rpx;
+  font-size: 24rpx;
+  border: none;
+}
+.open-btn { background: #67c23a; color: #fff; }
+.close-btn { background: #f56c6c; color: #fff; }
+
+/* 禁用按钮样式 */
+button[disabled] {
+  opacity: 0.6 !important;
+  background: #e5e5e5 !important;
+  color: #999 !important;
+}
